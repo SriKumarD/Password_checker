@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+  <script src="{{url_for('static', filename='js/home.js')}}"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta3/css/bootstrap.min.css" integrity="sha512-N415hCJJdJx+1UBfULt+i+ihvOn42V/kOjOpp1UTh4CZ70Hx5bDlKryWaqEKfY/8EYOu/C2MuyaluJryK1Lb5Q==" crossorigin="anonymous" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+  {% from 'base.html' import nav_link %}
+  {{nav_link('HOME')}}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-8 ms-1">
+        <h5>Let see if your password mets the requirements</h5>
+        <h5>{{msg[4]}}</h5>
+        {% if msg[4][0]=='O' %}
+          <h5>Here are the requirements you failed:</h5>
+          <ul class="ms-1">
+          {% for row in msg[0:4] %}
+            {% if row!='' %}
+              <li>{{row}}</li>
+            {% endif %}
+          {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  
+
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+  <script src="{{url_for('static', filename='js/home.js')}}"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta3/css/bootstrap.min.css" integrity="sha512-N415hCJJdJx+1UBfULt+i+ihvOn42V/kOjOpp1UTh4CZ70Hx5bDlKryWaqEKfY/8EYOu/C2MuyaluJryK1Lb5Q==" crossorigin="anonymous" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+   {% from 'base.html' import nav_link %} 
+   {{nav_link('HOME')}}
+   <div class="container-fluid">
+     <div class="row">
+        <div class="col-8 ms-1">
+            <h5>Welcome to Password Check</h5>
+            <h5>Let's see if your Password is secured!</h5>
+            <h5>Fill out the form below with a User Name and Password that has these restraints</h5>
+            <ul class="ms-1">
+                <li>Must have an Upper case letter somewhere</li>
+                <li>Must have an Lower case letter somewhere</li>
+                <li>Must have an number at end</li>
+                <li>Password should be at least 8 characters</li>
+            </ul>
+            <form class="row g-3" id="myForm" method="POST" action="/insert">
+                <div class="col-auto">
+                  <label for="username" class="visually-hidden">UserName</label>
+                  <div class="input-group">
+                    <div class="input-group-text">UserName</div>
+                    <input type="text"  class="form-control" id="username" name="username" required>
+                </div>
+                </div>
+                <div class="col-auto">
+                    <div class="input-group">
+                        <div class="input-group-text">Password</div>
+                  <label for="pass" class="visually-hidden">Password</label>
+                  <input type="password" class="form-control" id="pass" name="pass">
+                </div>
+                </div>
+                <div class="col-auto">
+                  <button type="submit" id="on" class="btn btn-primary mb-3">Submit Form</button>
+                </div>
+              </form>
+              
+        </div>
+      </div>
+   </div>
+   
+ 
+  
+</body>
+</html>
